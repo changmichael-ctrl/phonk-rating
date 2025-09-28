@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2kjwmiaoxja5"
+path="res://.godot/imported/PASSO BEM SOLTO (Super Slowed).mp3-78483c0e16f882d32e838c4e6962243d.mp3str"
+
+[deps]
+
+source_file="res://PASSO BEM SOLTO (Super Slowed).mp3"
+dest_files=["res://.godot/imported/PASSO BEM SOLTO (Super Slowed).mp3-78483c0e16f882d32e838c4e6962243d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
