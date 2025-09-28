@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://mluyid7u8xr7"]
+[gd_scene load_steps=18 format=3 uid="uid://mluyid7u8xr7"]
 
 [ext_resource type="Texture2D" uid="uid://bcp2mfipvbawy" path="res://phonkguy.jpg" id="1_f4i4e"]
 [ext_resource type="Script" uid="uid://chmr8y1dt1ltd" path="res://phonk.gd" id="1_ybauc"]
@@ -12,8 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://c7uompxmp4yka" path="res://playing.png" id="9_vftmd"]
 [ext_resource type="Texture2D" uid="uid://wuk2k2xa31ol" path="res://backten.png" id="10_r6gl1"]
 [ext_resource type="Texture2D" uid="uid://cj4cdodnx41fx" path="res://forwardten.png" id="11_l2p1m"]
+[ext_resource type="FontFile" uid="uid://g125nboppo53" path="res://Witchwoode-Regular.woff" id="13_b1ld4"]
 [ext_resource type="AudioStream" uid="uid://c3go5pp70l3yj" path="res://pKCuvKQ.wav" id="13_l2p1m"]
 [ext_resource type="Texture2D" uid="uid://dvsh3a8u1mj4c" path="res://soundamount.png" id="15_81jqk"]
+[ext_resource type="Texture2D" uid="uid://ckaj3vo7v1qf5" path="res://faya.jpg" id="15_p5knb"]
+[ext_resource type="Texture2D" uid="uid://dchcqyl0o4jgw" path="res://nonoweneedbothtrustme.jpg" id="16_b1ld4"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ybauc")
@@ -28,7 +31,7 @@ stream = ExtResource("3_l2p1m")
 
 [node name="speaker2" type="Sprite2D" parent="."]
 position = Vector2(509, 100)
-scale = Vector2(0.29206732, 0.3137343)
+scale = Vector2(-0.292, 0.314)
 texture = ExtResource("2_2c122")
 
 [node name="Phonkguy" type="Sprite2D" parent="."]
@@ -214,11 +217,15 @@ theme_override_font_sizes/font_size = 20
 text = "Phonk Rating"
 
 [node name="sacraficephonk" type="Button" parent="UI"]
-offset_left = 1035.0
-offset_top = 20.0
-offset_right = 1108.0
-offset_bottom = 51.0
-text = "Sacrifice"
+offset_left = 767.0
+offset_top = 39.0
+offset_right = 959.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("13_b1ld4")
+theme_override_font_sizes/font_size = 30
+text = "Sacrifice phonk"
 
 [node name="SACRIfice" type="AudioStreamPlayer2D" parent="UI/sacraficephonk"]
 stream = ExtResource("13_l2p1m")
@@ -236,6 +243,18 @@ scrollable = false
 position = Vector2(173, 29)
 scale = Vector2(0.10162266, 0.0974381)
 texture = ExtResource("15_81jqk")
+
+[node name="Faya" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(426, 351.00003)
+scale = Vector2(0.8009093, 0.9057377)
+texture = ExtResource("15_p5knb")
+
+[node name="Nonoweneedbothtrustme" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(429, 348)
+scale = Vector2(0.29666656, 0.22777799)
+texture = ExtResource("16_b1ld4")
 
 [connection signal="finished" from="speaker/Phonk player" to="." method="_on_phonk_player_finished"]
 [connection signal="pressed" from="Good" to="." method="_on_good_pressed"]

@@ -9,12 +9,12 @@ var playing = true
 
 var songnumber = 0
 var phonkplaylist = [
-	[preload("uid://3dqar3gvo01u"),"Phonk Music","SigmaMusicArt",preload("uid://bk0l2h7bf32qb")],
 	[preload("uid://b2kjwmiaoxja5"),"Passo Bem Solto","ATLXS",preload("uid://bdcyh6hdyx6wd")],
 	[preload("uid://dp2cek1u647eb"),"Montagem Tomada","MXZI",preload("uid://wr1mq6b7b0kb")],
 	[preload("uid://bw2kv55onbxcp"),"Funk Universo","Irokz",preload("uid://b1ycw4ytq7buv")],
 	[preload("uid://kmyv6hos8876"),"Avangard","LONOWN",preload("uid://b314m2hbp24b8")],
 	[preload("uid://57x4sqnmgqji"),"Acelerada","MXZI & sma$her",preload("uid://cm8qy677ka524")],
+	[preload("uid://3dqar3gvo01u"),"Phonk Music","SigmaMusicArt",preload("uid://bk0l2h7bf32qb")]
 	]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,6 +42,11 @@ func _process(_delta: float) -> void:
 	$UI/Songprogressbar/secondsprogress.text = str(progressminutes) + ":" + str(progressseconds) + " / " + str(maxmin) +":"+str(maxsec)
 	$UI/Songprogressbar.value = $"speaker/Phonk player".get_playback_position()
 func loadnextsong():
+	$Faya.visible = false
+	$Nonoweneedbothtrustme.visible = false
+	$Phonkguy.texture = preload("uid://bcp2mfipvbawy")
+	$speaker.texture = preload("uid://dw5gs5emxhs6h")
+	$speaker2.texture = preload("uid://dw5gs5emxhs6h")
 	$"speaker/Phonk player".pitch_scale = 1
 	$Good.disabled = false
 	$Bad.disabled = false
@@ -143,13 +148,21 @@ func _on_reset_volume_pressed() -> void:
 
 
 func _on_sacraficephonk_pressed() -> void:
+	playing = true
+	_on_playing_pressed()
+	$UI/sacraficephonk/SACRIfice.play()
+	await $UI/sacraficephonk/SACRIfice.finished
 	rating = 1000
 	$UI/Rating.text = "Rating:\nSACRIFICED"
 	$Good.disabled = true
 	$Bad.disabled = true
 	$Good.texture_normal = preload("uid://8ict71531c4m")
 	$Bad.texture_normal = preload("uid://8ict71531c4m")
-	$UI/sacraficephonk/SACRIfice.play()
-	playing = true
+	playing = false
 	_on_playing_pressed()
-	$"speaker/Phonk player".pitch_scale = 0.1
+	$"speaker/Phonk player".pitch_scale = 0.5
+	$Phonkguy.texture = preload("uid://bxpd22eoi6tb3")
+	$Faya.visible = true
+	$Nonoweneedbothtrustme.visible = true
+	$speaker.texture = preload("uid://cnewtyiq78q13")
+	$speaker2.texture = preload("uid://cnewtyiq78q13")
